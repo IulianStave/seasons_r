@@ -16,6 +16,15 @@ const App = () => {
 */
 
 class App extends React.Component {
+  // initialize state
+  constructor(props){
+    super(props);
+
+    this.state = { lat: null };
+
+  }
+  
+  
   render() {
     window.navigator.geolocation.getCurrentPosition(
       position => console.log(position),
