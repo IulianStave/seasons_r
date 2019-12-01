@@ -19,7 +19,8 @@ class App extends React.Component {
   // initialize state
   constructor(props){
     super(props);
-
+    
+    // one way to initialize state
     this.state = { lat: null, errorMessage: '' };
     
     //call the geolocator API service
@@ -34,7 +35,15 @@ class App extends React.Component {
     );
   }
   
-  
+  // the other way the state is initialized and updated
+  componentDidMount() {
+    console.log('My component was initialized');
+  }
+
+  componentDidUpdate() {
+    console.log('My component was updated - and rerendered');
+  }
+
   render() {
     
     if (this.state.lat && !this.state.errorMessage) {
