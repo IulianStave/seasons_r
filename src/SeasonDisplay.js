@@ -1,5 +1,4 @@
 import React from 'react';
-import { summarizers } from 'istanbul-lib-report';
 
 const getSeason = (lat, month) => {
   if (month > 2 && month < 9) {
@@ -13,8 +12,19 @@ const getSeason = (lat, month) => {
 const SeasonDisplay = (props) => {
   const month = new Date().getMonth();
   const season = getSeason(props.lat, month);
+  const seasonText = 
+    season === 'winter' ? 'Blurr, it is chilly' : 'Summer time';
+  const icon =
+    season === 'winter' ? 'snowflake' : 'sun';
 
-  return <div> Season Display::: Month: {month} | Season: {season}| Latitude: {props.lat} </div>
+  return (
+    <div>
+      <i className = "blind icon" />
+      <i className = {`${icon} icon`} />
+      <h1>{seasonText}</h1>
+      <i className = {`${icon} icon`} />
+    </div>
+  );
 };
 
 export default SeasonDisplay;
